@@ -25,14 +25,14 @@ export function HeroBackground() {
       <GooeyFilter id="gooey-filter-pixel-trail" strength={5} />
 
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-10 opacity-40"
         style={{ filter: "url(#gooey-filter-pixel-trail)" }}
       >
         <PixelTrail
           pixelSize={screenSize.lessThan('md') ? 24 : 32}
           fadeDuration={800}
           delay={100}
-          pixelClassName="bg-white/40"
+          pixelClassName="bg-white"
         />
       </div>
 
