@@ -17,13 +17,20 @@ interface NavBarProps {
   items: NavItem[]
   className?: string
   defaultActive?: string
+  activeId?: string
 }
 
-export function AnimeNavBar({ items, className, defaultActive = "Home" }: NavBarProps) {
+export function AnimeNavBar({ items, className, defaultActive = "Home", activeId }: NavBarProps) {
   const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
   const [hoveredTab, setHoveredTab] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<string>(defaultActive)
+
+  useEffect(() => {
+    if (activeId) {
+      setActiveTab(activeId)
+    }
+  }, [activeId])
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
