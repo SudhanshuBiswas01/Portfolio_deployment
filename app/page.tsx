@@ -59,7 +59,8 @@ const SKILL_GROUPS = [
 
 const TIMELINE = [
   { when: 'Feb 2026 — Present', title: 'Post Graduate, Agentic AI & Machine Learning', where: 'IIT Gandhinagar' },
-  { when: 'Oct 2022 — 2026', title: 'BSc (Hons) Computer Science', where: 'IU International University of Applied Sciences, Germany — dual degree with London South Bank University, UK' },
+  { when: 'Oct 2022 — 2026', title: 'BSc (Hons) Computer Science', where: 'London South Bank University, UK' },
+  { when: 'Oct 2022 — 2026', title: 'BSc (Hons) Computer Science', where: 'IU International University of Applied Sciences, Germany' },
   { when: 'Jun 2019 — Aug 2022', title: 'Diploma, Computer Science Engineering', where: 'Maharashtra State Board — 2nd Rank in batch' },
 ];
 
