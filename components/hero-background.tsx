@@ -1,6 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { PixelTrail } from '@/components/ui/pixel-trail';
+import { GooeyFilter } from '@/components/ui/gooey-filter';
+import { useScreenSize } from '@/hooks/use-screen-size';
 
 /**
  * HeroBackground — a layered, animated backdrop for the hero section.
@@ -14,8 +17,25 @@ import { motion } from 'framer-motion';
  * All purely CSS/SVG — no canvas overhead beyond the existing DottedSurface.
  */
 export function HeroBackground() {
+  const screenSize = useScreenSize();
+  
   return (
-    <div className="hero-bg pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden>
+    <div className="hero-bg absolute inset-0 -z-10 overflow-hidden" aria-hidden>
+      {/* Gooey Filter for Pixel Trail */}
+      <GooeyFilter id="gooey-filter-pixel-trail" strength={5} />
+
+      <div
+        className="absolute inset-0 z-0"
+        style={{ filter: "url(#gooey-filter-pixel-trail)" }}
+      >
+        <PixelTrail
+          pixelSize={screenSize.lessThan('md') ? 24 : 32}
+          fadeDuration={0}
+          delay={500}
+          pixelClassName="bg-white/40"
+        />
+      </div>
+
       {/* Base radial gradient mesh */}
       <div
         className="absolute inset-0"
