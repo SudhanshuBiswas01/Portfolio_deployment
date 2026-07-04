@@ -30,8 +30,8 @@ export function HeroBackground() {
       >
         <PixelTrail
           pixelSize={screenSize.lessThan('md') ? 24 : 32}
-          fadeDuration={0}
-          delay={500}
+          fadeDuration={800}
+          delay={100}
           pixelClassName="bg-white/40"
         />
       </div>
