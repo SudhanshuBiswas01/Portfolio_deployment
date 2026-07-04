@@ -19,6 +19,7 @@ import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 import { TelemetrySpine } from '@/components/telemetry-spine';
 import { Reveal } from '@/components/reveal';
 import { HeroBackground } from '@/components/hero-background';
+import { GlowCard } from '@/components/ui/spotlight-card';
 import dynamic from 'next/dynamic';
 
 const DottedSurface = dynamic(
@@ -90,22 +91,14 @@ function ProjectCard({
   className?: string;
   children: React.ReactNode;
 }) {
-  const onMove = (e: MouseEvent<HTMLDivElement>) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty('--mx', e.clientX - r.left + 'px');
-    e.currentTarget.style.setProperty('--my', e.clientY - r.top + 'px');
-  };
   return (
-    <div
-      data-magnetic
-      onMouseMove={onMove}
-      className={
-        'proj-card group relative overflow-hidden rounded-2xl border border-white/10 bg-surface/60 p-7 backdrop-blur-sm transition-colors duration-300 hover:border-signal/40 ' +
-        (className ?? '')
-      }
+    <GlowCard 
+      customSize={true} 
+      className={`group ${className ?? ''}`}
+      glowColor="blue"
     >
-      <div className="relative z-10">{children}</div>
-    </div>
+      <div className="relative z-10 h-full">{children}</div>
+    </GlowCard>
   );
 }
 
@@ -272,7 +265,7 @@ export default function Page() {
 
           {/* HackRush spotlight */}
           <Reveal delay={0.05}>
-            <div className="mt-5 overflow-hidden rounded-2xl border border-ion/25 bg-gradient-to-br from-surface-2/80 to-surface/40 p-5 md:p-8">
+            <GlowCard customSize={true} glowColor="purple" className="mt-5 overflow-hidden border-ion/25 bg-gradient-to-br from-surface-2/80 to-surface/40 p-5 md:p-8">
               <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-ion"><Trophy size={14} /> 1st Place · Quantitative Finance Track</div>
               <h3 className="mt-3 font-display text-2xl font-semibold text-white md:text-3xl">HackRush 2026 — IIT Gandhinagar&apos;s 9th Annual Hackathon</h3>
               <div className="mt-6 flex flex-wrap gap-6 md:gap-10 font-mono text-sm">
@@ -280,7 +273,7 @@ export default function Page() {
                 <div><span className="text-xl font-semibold text-white md:text-2xl">2</span> <span className="text-ash">with teammate Ayush Patil</span></div>
                 <div><span className="text-xl font-semibold text-white md:text-2xl">2.26M</span> <span className="text-ash">rows processed</span></div>
               </div>
-            </div>
+            </GlowCard>
           </Reveal>
         </section>
 
@@ -305,13 +298,13 @@ export default function Page() {
                 </button>
               ))}
             </div>
-            <div className="rounded-2xl border border-white/10 bg-surface/40 p-5 md:p-8">
+            <GlowCard customSize={true} className="p-5 md:p-8" glowColor="blue">
               <div className="flex flex-wrap gap-3">
                 {SKILL_GROUPS.find((g) => g.id === skill)?.items.map((it) => (
                   <span key={it} className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-vapor">{it}</span>
                 ))}
               </div>
-            </div>
+            </GlowCard>
           </div>
         </section>
       </div>
