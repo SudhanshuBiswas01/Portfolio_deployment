@@ -177,8 +177,8 @@ export default function Page() {
           scrollToExpand="Scroll to enter"
         >
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-lg text-ash">
-              AI/ML/Agentic Engineer building production LLM systems — and
+            <p className="text-lg text-ash md:text-xl">
+              I&apos;m <strong className="text-white">Sudhanshu Biswas</strong>, an AI/ML/Agentic Engineer building production LLM systems — and
               documenting the whole build in public.
             </p>
           </div>
