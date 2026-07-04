@@ -173,12 +173,12 @@ export default function Page() {
           mediaSrc="/hero-neural-network.mp4"
           posterSrc="/hero-poster.jpg"
           bgImageSrc="/hero-bg.png"
-          title="I ship agents,"
+          title="Hello, I am Sudhanshu."
           scrollToExpand="Scroll to enter"
         >
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-lg text-ash md:text-xl">
-              I&apos;m <strong className="text-white">Sudhanshu Biswas</strong>, an AI/ML/Agentic Engineer building production LLM systems — and
+              Welcome to my portfolio. I&apos;m an AI/ML/Agentic Engineer building production LLM systems — and
               documenting the whole build in public.
             </p>
           </div>
