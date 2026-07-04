@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #06070F;
+  --surface: #0C0F1D;
+  --surface-2: #12162A;
+  --signal: #7B96FF;
+  --ion: #A56BFF;
+  --vapor: #E9EBF5;
+  --ash: #868DA6;
+  --line: rgba(255, 255, 255, 0.08);
+  --glow: rgba(123, 150, 255, 0.55);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--void);
+  color: var(--vapor);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: rgba(110, 139, 255, 0.28); color: #fff; }
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Hide native cursor only when the custom cursor is active */
+body.cursor-none,
+body.cursor-none a,
+body.cursor-none button { cursor: none; }
+
+.cursor-ring.cursor-grow {
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(110, 139, 255, 0.08);
+  border-color: rgba(165, 107, 255, 0.6);
+}
+
+/* Cursor-reactive glow for project cards */
+.proj-card::before {
+  content: '';
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  left: var(--mx, 50%);
+  top: var(--my, 50%);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(110, 139, 255, 0.16), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.proj-card:hover::before { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Hero section enhancements */
+@keyframes hero-glow-pulse {
+  0%, 100% { box-shadow: 0 0 60px rgba(110,139,255,0.12), 0 0 120px rgba(165,107,255,0.06); }
+  50% { box-shadow: 0 0 80px rgba(110,139,255,0.22), 0 0 160px rgba(165,107,255,0.12); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Section divider glow line */
+.section-glow-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--signal), var(--ion), transparent);
+  opacity: 0.25;
+}
+
